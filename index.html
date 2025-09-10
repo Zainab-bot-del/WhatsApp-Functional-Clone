@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zainab Tehreem JusticeWali - Portfolio Book 2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF8C00;
+      --secondary: #FF5F1F;
+      --accent: #FFB74D;
+      --dark: #1A1A2E;
+      --light: #FFF5E6;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      padding: 0;
+      text-align: center;
+      background-image: 
+        radial-gradient(circle at 5% 10%, rgba(255, 140, 0, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 95% 10%, rgba(255, 95, 31, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(255, 183, 77, 0.05) 0%, transparent 20%);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      padding: 40px 20px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .profile {
+      margin-bottom: 20px;
+    }
+    
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 15px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      margin: 0 auto 15px;
+    }
+    
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .tagline {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .social-links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tasks {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .task-box {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .task-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient);
+    }
+    
+    .task-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .task-number {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(0, 0, 0, 0.05);
+    }
+    
+    .task-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .task-box h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .task-box p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+    
+    .task-box a {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .task-box a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+    }
+    
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .tasks {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-bg"></div>
+      <div class="profile">
+        <div class="profile-img">
+          <i class="fas fa-film"></i>
+        </div>
+        <h2>Video Editor & Social Media Content Creator</h2>
+        <h1>Zainab Tehreem JusticeWali</h1>
+        <p class="tagline">Crafting compelling visual stories through editing and creative content</p>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/zain.abtehreem" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@yourprofile" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://linkedin.com/in/zainab-tehreem-justice-wali-39b850372" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </header>
+
+    <main>
+      <h2>Coding Book 2 – Advanced Web Development Portfolio</h2>
+      
+      <div class="tasks">
+        <!-- Task boxes with meaningful icons -->
+        <div class="task-box">
+          <div class="task-number">01</div>
+          <div class="task-icon"><i class="fas fa-robot"></i></div>
+          <h3>ChatGPT Clone (Non-Functional)</h3>
+          <p>UI replica of ChatGPT interface</p>
+          <a href="https://zainab-bot-del.github.io/ChatGPT-Clone-Non-Functional-/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">02</div>
+          <div class="task-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>WhatsApp Clone (Non-Functional)</h3>
+          <p>UI replica of WhatsApp</p>
+          <a href="https://zainab-bot-del.github.io/whatsapp-clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">03</div>
+          <div class="task-icon"><i class="fas fa-newspaper"></i></div>
+          <h3>CNN Clone (Functional)</h3>
+          <p>Functional news website clone</p>
+          <a href="https://zainab-bot-del.github.io/CNN-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">04</div>
+          <div class="task-icon"><i class="fas fa-blog"></i></div>
+          <h3>Blogger.com Clone (Functional)</h3>
+          <p>Blogging platform clone</p>
+          <a href="https://zainab-bot-del.github.io/BLOGGER.COM/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">05</div>
+          <div class="task-icon"><i class="fab fa-twitter"></i></div>
+          <h3>Twitter Clone (Functional)</h3>
+          <p>Functional Twitter/X clone</p>
+          <a href="https://zainab-bot-del.github.io/Twitter-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">06</div>
+          <div class="task-icon"><i class="fas fa-globe"></i></div>
+          <h3>GoDaddy Clone (Functional)</h3>
+          <p>Domain hosting website clone</p>
+          <a href="https://zainab-bot-del.github.io/GoDaddy-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">07</div>
+          <div class="task-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>WhatsApp Functional Clone</h3>
+          <p>Functional messaging app clone</p>
+          <a href="" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">08</div>
+          <div class="task-icon"><i class="fas fa-robot"></i></div>
+          <h3>ChatGPT Functional Clone</h3>
+          <p>Functional AI chat interface</p>
+          <a href="https://zainab-bot-del.github.io/ChatGPT--Functional-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">09</div>
+          <div class="task-icon"><i class="fas fa-shipping-fast"></i></div>
+          <h3>DHL Clone (Functional)</h3>
+          <p>Shipping company website clone</p>
+          <a href="https://zainab-bot-del.github.io/Dhl-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">10</div>
+          <div class="task-icon"><i class="fas fa-hotel"></i></div>
+          <h3>Hotels.com Clone (Functional)</h3>
+          <p>Hotel booking website clone</p>
+          <a href="https://zainab-bot-del.github.io/Hotels.com-Clone/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">11</div>
+          <div class="task-icon"><i class="fas fa-car"></i></div>
+          <h3>RentACar.com Clone (Functional)</h3>
+          <p>Car rental service clone</p>
+          <a href="https://zainab-bot-del.github.io/RENTACAR.COM-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">12</div>
+          <div class="task-icon"><i class="fas fa-bed"></i></div>
+          <h3>Airbnb Clone (Functional)</h3>
+          <p>Vacation rental platform clone</p>
+          <a href="https://zainab-bot-del.github.io/AIRBNB-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">13</div>
+          <div class="task-icon"><i class="fas fa-hotel"></i></div>
+          <h3>Sheraton Hotels Clone</h3>
+          <p>Hotel chain website clone</p>
+          <a href="https://zainab-bot-del.github.io/SHERATON-HOTELS--CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">14</div>
+          <div class="task-icon"><i class="fas fa-hotel"></i></div>
+          <h3>Hilton Hotels Clone</h3>
+          <p>Hotel chain website clone</p>
+          <a href="https://zainab-bot-del.github.io/HILTON-HOTELS-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">15</div>
+          <div class="task-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Calendly.com Clone</h3>
+          <p>Scheduling platform clone</p>
+          <a href="https://zainab-bot-del.github.io/CALENDLY.COM-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">16</div>
+          <div class="task-icon"><i class="fas fa-brain"></i></div>
+          <h3>EQ Test (Functional)</h3>
+          <p>Emotional intelligence assessment</p>
+          <a href="https://zainab-bot-del.github.io/EQ-TEST-/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">17</div>
+          <div class="task-icon"><i class="fas fa-brain"></i></div>
+          <h3>IQ Test (Functional)</h3>
+          <p>Intelligence quotient assessment</p>
+          <a href="https://zainab-bot-del.github.io/IQ-TEST/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">18</div>
+          <div class="task-icon"><i class="fas fa-tasks"></i></div>
+          <h3>MTurk.com Clone (Functional)</h3>
+          <p>Crowdsourcing platform clone</p>
+          <a href="https://zainab-bot-del.github.io/MTURK.COM-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">19</div>
+          <div class="task-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>RehanSchool.net Clone (Functional)</h3>
+          <p>Educational platform clone</p>
+          <a href="https://zainab-bot-del.github.io/REHANSCHOOL.NET-CLONE/" target="_blank">View Project</a>
+        </div>
+
+        <div class="task-box">
+          <div class="task-number">20</div>
+          <div class="task-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Rehan.Education Clone (Functional)</h3>
+          <p>Educational website clone</p>
+          <a href="https://zainab-bot-del.github.io/REHAN.EDUCATION-CLONE/" target="_blank">View Project</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Coding Book 2 – Advanced Web Development Portfolio
+    </footer>
+  </div>
+</body>
+</html>
