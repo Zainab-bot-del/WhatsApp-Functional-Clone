@@ -1,424 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zainab Tehreem JusticeWali - Portfolio Book 2</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #FF8C00;
-      --secondary: #FF5F1F;
-      --accent: #FFB74D;
-      --dark: #1A1A2E;
-      --light: #FFF5E6;
-      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      padding: 0;
-      text-align: center;
-      background-image: 
-        radial-gradient(circle at 5% 10%, rgba(255, 140, 0, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 95% 10%, rgba(255, 95, 31, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 50% 90%, rgba(255, 183, 77, 0.05) 0%, transparent 20%);
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    header {
-      padding: 40px 20px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .header-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient);
-      opacity: 0.1;
-      z-index: -1;
-    }
-    
-    .profile {
-      margin-bottom: 20px;
-    }
-    
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      margin-bottom: 15px;
-      background: var(--gradient);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 40px;
-      margin: 0 auto 15px;
-    }
-    
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--primary);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    
-    h1 {
-      font-size: 2.2rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    
-    .tagline {
-      color: #666;
-      max-width: 600px;
-      margin: 0 auto 25px;
-      font-size: 1.1rem;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--gradient);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .social-links a:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .tasks {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
-    
-    .task-box {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .task-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--gradient);
-    }
-    
-    .task-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .task-number {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 2rem;
-      font-weight: 800;
-      color: rgba(0, 0, 0, 0.05);
-    }
-    
-    .task-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    .task-box h3 {
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      color: var(--dark);
-    }
-    
-    .task-box p {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-      min-height: 40px;
-    }
-    
-    .task-box a {
-      display: inline-block;
-      padding: 8px 20px;
-      background: var(--gradient);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      transition: all 0.3s;
-      font-weight: 500;
-    }
-    
-    .task-box a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
-    }
-    
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      .tasks {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #3b4a54;
+        }
+        
+        .app-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #111b21;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            width: 30%;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #2a3942;
+            background-color: #111b21;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background-color: #202c33;
+            height: 60px;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #6a7175;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .avatar-initials {
+            font-size: 16px;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            color: #aebac1;
+        }
+        
+        .header-icons i {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .search-container {
+            padding: 8px 14px;
+            background-color: #111b21;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: #202c33;
+            border-radius: 18px;
+            padding: 6px 12px;
+        }
+        
+        .search-box i {
+            color: #8696a0;
+            margin-right: 8px;
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #d1d7db;
+            width: 100%;
+            padding: 6px 0;
+            outline: none;
+        }
+        
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .chat-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #222d34;
+        }
+        
+        .chat-item:hover {
+            background-color: #202c33;
+        }
+        
+        .chat-item.active {
+            background-color: #2a3942;
+        }
+        
+        .chat-info {
+            margin-left: 15px;
+            flex: 1;
+        }
+        
+        .chat-info-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .chat-name {
+            color: #e9edef;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .chat-time {
+            color: #8696a0;
+            font-size: 12px;
+        }
+        
+        .chat-last-msg {
+            color: #8696a0;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+        
+        /* Main Chat Area Styles */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #0b141a;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23121d24' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background-color: #202c33;
+            height: 60px;
+        }
+        
+        .current-chat-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .current-chat-name {
+            color: #e9edef;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .chat-status {
+            color: #8696a0;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+        
+        .chat-header-icons {
+            display: flex;
+            gap: 20px;
+            color: #aebac1;
+        }
+        
+        .chat-header-icons i {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .messages-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message {
+            max-width: 65%;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            position: relative;
+            word-wrap: break-word;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #8696a0;
+            text-align: right;
+            margin-top: 3px;
+        }
+        
+        .incoming {
+            align-self: flex-start;
+            background-color: #202c33;
+            color: #e9edef;
+            border-top-left-radius: 0;
+        }
+        
+        .outgoing {
+            align-self: flex-end;
+            background-color: #005c4b;
+            color: #e9edef;
+            border-top-right-radius: 0;
+        }
+        
+        .message-input-container {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #202c33;
+            min-height: 62px;
+        }
+        
+        .input-action-icons {
+            display: flex;
+            gap: 15px;
+            color: #8696a0;
+            margin-right: 15px;
+        }
+        
+        .input-action-icons i {
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .message-input {
+            flex: 1;
+            background-color: #2a3942;
+            border-radius: 20px;
+            padding: 9px 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .message-input input {
+            background: transparent;
+            border: none;
+            color: #d1d7db;
+            width: 100%;
+            padding: 6px 0;
+            outline: none;
+            font-size: 15px;
+        }
+        
+        .voice-message-btn {
+            color: #8696a0;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 40%;
+                min-width: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-container {
+                position: relative;
+            }
+            
+            .sidebar {
+                width: 100%;
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: flex;
+                z-index: 10;
+            }
+            
+            .chat-area {
+                display: none;
+            }
+            
+            .chat-area.active {
+                display: flex;
+            }
+            
+            .back-button {
+                display: block !important;
+            }
+        }
+        
+        .back-button {
+            display: none;
+            color: #aebac1;
+            margin-right: 15px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .no-chat-selected {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #8696a0;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .no-chat-selected h2 {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 16px;
+            color: #e9edef;
+        }
+        
+        .no-chat-selected p {
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 500px;
+        }
+        
+        .no-chat-selected .divider {
+            width: 100%;
+            max-width: 400px;
+            height: 1px;
+            background-color: #2a3942;
+            margin: 30px 0;
+        }
+        
+        .privacy-notice {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="header-bg"></div>
-      <div class="profile">
-        <div class="profile-img">
-          <i class="fas fa-film"></i>
+    <div class="app-container">
+        <!-- Sidebar with chat list -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <span class="avatar-initials">JS</span>
+                    </div>
+                    <span class="user-name">John Smith</span>
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-status"></i>
+                    <i class="fas fa-comment-dots"></i>
+                    <i class="fas fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search or start new chat">
+                </div>
+            </div>
+            
+            <div class="chat-list">
+                <div class="chat-item active" data-chat="1">
+                    <div class="avatar">
+                        <span class="avatar-initials">AS</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Alice Smith</span>
+                            <span class="chat-time">2:45 PM</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double" style="color: #53bdeb;"></i> See you tomorrow!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="2">
+                    <div class="avatar">
+                        <span class="avatar-initials">BJ</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Bob Johnson</span>
+                            <span class="chat-time">Yesterday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double"></i> Did you see the game last night?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="3">
+                    <div class="avatar">
+                        <span class="avatar-initials">CW</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Carol Williams</span>
+                            <span class="chat-time">Yesterday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double"></i> I sent you the documents
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="4">
+                    <div class="avatar">
+                        <span class="avatar-initials">DB</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">David Brown</span>
+                            <span class="chat-time">Tuesday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double" style="color: #53bdeb;"></i> Thanks for your help!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="5">
+                    <div class="avatar">
+                        <span class="avatar-initials">EJ</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Emma Jones</span>
+                            <span class="chat-time">Monday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double"></i> Are we still meeting at 5?
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="6">
+                    <div class="avatar">
+                        <span class="avatar-initials">FD</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Frank Davis</span>
+                            <span class="chat-time">Sunday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double" style="color: #53bdeb;"></i> The meeting is cancelled
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-item" data-chat="7">
+                    <div class="avatar">
+                        <span class="avatar-initials">GM</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-info-top">
+                            <span class="chat-name">Grace Miller</span>
+                            <span class="chat-time">Saturday</span>
+                        </div>
+                        <div class="chat-last-msg">
+                            <i class="fas fa-check-double"></i> Can you send me those files?
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h2>Video Editor & Social Media Content Creator</h2>
-        <h1>Zainab Tehreem JusticeWali</h1>
-        <p class="tagline">Crafting compelling visual stories through editing and creative content</p>
-      </div>
-      
-      <div class="social-links">
-        <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.instagram.com/zain.abtehreem" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@yourprofile" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://linkedin.com/in/zainab-tehreem-justice-wali-39b850372" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </header>
-
-    <main>
-      <h2>Coding Book 2 – Advanced Web Development Portfolio</h2>
-      
-      <div class="tasks">
-        <!-- Task boxes with meaningful icons -->
-        <div class="task-box">
-          <div class="task-number">01</div>
-          <div class="task-icon"><i class="fas fa-robot"></i></div>
-          <h3>ChatGPT Clone (Non-Functional)</h3>
-          <p>UI replica of ChatGPT interface</p>
-          <a href="https://zainab-bot-del.github.io/ChatGPT-Clone-Non-Functional-/" target="_blank">View Project</a>
+        
+        <!-- Main chat area -->
+        <div class="chat-area active" id="chatArea">
+            <div class="chat-header">
+                <div class="current-chat-info">
+                    <div class="back-button" id="backButton">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="avatar">
+                        <span class="avatar-initials">AS</span>
+                    </div>
+                    <div>
+                        <div class="current-chat-name">Alice Smith</div>
+                        <div class="chat-status">online</div>
+                    </div>
+                </div>
+                <div class="chat-header-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+            
+            <div class="messages-container" id="messagesContainer">
+                <div class="message incoming">
+                    <div class="message-text">Hey there! How's it going?</div>
+                    <div class="message-time">2:30 PM</div>
+                </div>
+                
+                <div class="message outgoing">
+                    <div class="message-text">Hi Alice! I'm doing great. Just finished the project we were working on.</div>
+                    <div class="message-time">2:32 PM</div>
+                </div>
+                
+                <div class="message incoming">
+                    <div class="message-text">That's awesome! How did it go?</div>
+                    <div class="message-time">2:33 PM</div>
+                </div>
+                
+                <div class="message outgoing">
+                    <div class="message-text">Really well! The client loved the design and approved everything.</div>
+                    <div class="message-time">2:35 PM</div>
+                </div>
+                
+                <div class="message incoming">
+                    <div class="message-text">That's fantastic news! We should celebrate. Are you free tomorrow evening?</div>
+                    <div class="message-time">2:36 PM</div>
+                </div>
+                
+                <div class="message outgoing">
+                    <div class="message-text">Sure, I'm free after 6 PM. What did you have in mind?</div>
+                    <div class="message-time">2:38 PM</div>
+                </div>
+                
+                <div class="message incoming">
+                    <div class="message-text">There's that new Italian place downtown. I've heard great things about it.</div>
+                    <div class="message-time">2:40 PM</div>
+                </div>
+                
+                <div class="message outgoing">
+                    <div class="message-text">Sounds perfect! Let's meet there at 7?</div>
+                    <div class="message-time">2:42 PM</div>
+                </div>
+                
+                <div class="message incoming">
+                    <div class="message-text">7 works for me! See you tomorrow then 😊</div>
+                    <div class="message-time">2:45 PM</div>
+                </div>
+            </div>
+            
+            <div class="message-input-container">
+                <div class="input-action-icons">
+                    <i class="far fa-face-smile"></i>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="message-input">
+                    <input type="text" placeholder="Type a message" id="messageInput">
+                </div>
+                <div class="voice-message-btn">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </div>
         </div>
-
-        <div class="task-box">
-          <div class="task-number">02</div>
-          <div class="task-icon"><i class="fab fa-whatsapp"></i></div>
-          <h3>WhatsApp Clone (Non-Functional)</h3>
-          <p>UI replica of WhatsApp</p>
-          <a href="https://zainab-bot-del.github.io/whatsapp-clone/" target="_blank">View Project</a>
+        
+        <!-- No chat selected view -->
+        <div class="no-chat-selected" id="noChatSelected">
+            <div>
+                <h2>WhatsApp Web</h2>
+                <p>Send and receive messages without keeping your phone online.<br>Use WhatsApp on up to 4 linked devices and 1 phone at the same time.</p>
+                
+                <div class="divider"></div>
+                
+                <p class="privacy-notice">Privacy and security are built into WhatsApp. Your personal messages and calls are end-to-end encrypted, which means not even WhatsApp can read or listen to them.</p>
+            </div>
         </div>
+    </div>
 
-        <div class="task-box">
-          <div class="task-number">03</div>
-          <div class="task-icon"><i class="fas fa-newspaper"></i></div>
-          <h3>CNN Clone (Functional)</h3>
-          <p>Functional news website clone</p>
-          <a href="https://zainab-bot-del.github.io/CNN-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">04</div>
-          <div class="task-icon"><i class="fas fa-blog"></i></div>
-          <h3>Blogger.com Clone (Functional)</h3>
-          <p>Blogging platform clone</p>
-          <a href="https://zainab-bot-del.github.io/BLOGGER.COM/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">05</div>
-          <div class="task-icon"><i class="fab fa-twitter"></i></div>
-          <h3>Twitter Clone (Functional)</h3>
-          <p>Functional Twitter/X clone</p>
-          <a href="https://zainab-bot-del.github.io/Twitter-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">06</div>
-          <div class="task-icon"><i class="fas fa-globe"></i></div>
-          <h3>GoDaddy Clone (Functional)</h3>
-          <p>Domain hosting website clone</p>
-          <a href="https://zainab-bot-del.github.io/GoDaddy-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">07</div>
-          <div class="task-icon"><i class="fab fa-whatsapp"></i></div>
-          <h3>WhatsApp Functional Clone</h3>
-          <p>Functional messaging app clone</p>
-          <a href="" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">08</div>
-          <div class="task-icon"><i class="fas fa-robot"></i></div>
-          <h3>ChatGPT Functional Clone</h3>
-          <p>Functional AI chat interface</p>
-          <a href="https://zainab-bot-del.github.io/ChatGPT--Functional-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">09</div>
-          <div class="task-icon"><i class="fas fa-shipping-fast"></i></div>
-          <h3>DHL Clone (Functional)</h3>
-          <p>Shipping company website clone</p>
-          <a href="https://zainab-bot-del.github.io/Dhl-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">10</div>
-          <div class="task-icon"><i class="fas fa-hotel"></i></div>
-          <h3>Hotels.com Clone (Functional)</h3>
-          <p>Hotel booking website clone</p>
-          <a href="https://zainab-bot-del.github.io/Hotels.com-Clone/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">11</div>
-          <div class="task-icon"><i class="fas fa-car"></i></div>
-          <h3>RentACar.com Clone (Functional)</h3>
-          <p>Car rental service clone</p>
-          <a href="https://zainab-bot-del.github.io/RENTACAR.COM-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">12</div>
-          <div class="task-icon"><i class="fas fa-bed"></i></div>
-          <h3>Airbnb Clone (Functional)</h3>
-          <p>Vacation rental platform clone</p>
-          <a href="https://zainab-bot-del.github.io/AIRBNB-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">13</div>
-          <div class="task-icon"><i class="fas fa-hotel"></i></div>
-          <h3>Sheraton Hotels Clone</h3>
-          <p>Hotel chain website clone</p>
-          <a href="https://zainab-bot-del.github.io/SHERATON-HOTELS--CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">14</div>
-          <div class="task-icon"><i class="fas fa-hotel"></i></div>
-          <h3>Hilton Hotels Clone</h3>
-          <p>Hotel chain website clone</p>
-          <a href="https://zainab-bot-del.github.io/HILTON-HOTELS-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">15</div>
-          <div class="task-icon"><i class="fas fa-calendar-check"></i></div>
-          <h3>Calendly.com Clone</h3>
-          <p>Scheduling platform clone</p>
-          <a href="https://zainab-bot-del.github.io/CALENDLY.COM-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">16</div>
-          <div class="task-icon"><i class="fas fa-brain"></i></div>
-          <h3>EQ Test (Functional)</h3>
-          <p>Emotional intelligence assessment</p>
-          <a href="https://zainab-bot-del.github.io/EQ-TEST-/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">17</div>
-          <div class="task-icon"><i class="fas fa-brain"></i></div>
-          <h3>IQ Test (Functional)</h3>
-          <p>Intelligence quotient assessment</p>
-          <a href="https://zainab-bot-del.github.io/IQ-TEST/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">18</div>
-          <div class="task-icon"><i class="fas fa-tasks"></i></div>
-          <h3>MTurk.com Clone (Functional)</h3>
-          <p>Crowdsourcing platform clone</p>
-          <a href="https://zainab-bot-del.github.io/MTURK.COM-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">19</div>
-          <div class="task-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>RehanSchool.net Clone (Functional)</h3>
-          <p>Educational platform clone</p>
-          <a href="https://zainab-bot-del.github.io/REHANSCHOOL.NET-CLONE/" target="_blank">View Project</a>
-        </div>
-
-        <div class="task-box">
-          <div class="task-number">20</div>
-          <div class="task-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Rehan.Education Clone (Functional)</h3>
-          <p>Educational website clone</p>
-          <a href="https://zainab-bot-del.github.io/REHAN.EDUCATION-CLONE/" target="_blank">View Project</a>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      Coding Book 2 – Advanced Web Development Portfolio
-    </footer>
-  </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatItems = document.querySelectorAll('.chat-item');
+            const chatArea = document.getElementById('chatArea');
+            const sidebar = document.getElementById('sidebar');
+            const backButton = document.getElementById('backButton');
+            const noChatSelected = document.getElementById('noChatSelected');
+            const messageInput = document.getElementById('messageInput');
+            const messagesContainer = document.getElementById('messagesContainer');
+            
+            // Initially show no chat selected on mobile
+            if (window.innerWidth <= 768) {
+                chatArea.classList.remove('active');
+                noChatSelected.style.display = 'flex';
+            } else {
+                noChatSelected.style.display = 'none';
+            }
+            
+            // Chat selection functionality
+            chatItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all chats
+                    chatItems.forEach(chat => chat.classList.remove('active'));
+                    
+                    // Add active class to clicked chat
+                    this.classList.add('active');
+                    
+                    // Update chat header with selected chat's name
+                    const chatName = this.querySelector('.chat-name').textContent;
+                    document.querySelector('.current-chat-name').textContent = chatName;
+                    
+                    // Update avatar with selected chat's initials
+                    const avatarInitials = this.querySelector('.avatar-initials').textContent;
+                    document.querySelector('.current-chat-info .avatar-initials').textContent = avatarInitials;
+                    
+                    // On mobile, switch to chat view
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        chatArea.classList.add('active');
+                        noChatSelected.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Back button functionality for mobile
+            backButton.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    chatArea.classList.remove('active');
+                    sidebar.classList.add('active');
+                    noChatSelected.style.display = 'none';
+                }
+            });
+            
+            // Message sending functionality
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && this.value.trim() !== '') {
+                    const messageText = this.value.trim();
+                    
+                    // Create new message element
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'message outgoing';
+                    
+                    const messageTextDiv = document.createElement('div');
+                    messageTextDiv.className = 'message-text';
+                    messageTextDiv.textContent = messageText;
+                    
+                    const messageTimeDiv = document.createElement('div');
+                    messageTimeDiv.className = 'message-time';
+                    
+                    // Get current time
+                    const now = new Date();
+                    let hours = now.getHours();
+                    let minutes = now.getMinutes();
+                    const ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    minutes = minutes < 10 ? '0'+minutes : minutes;
+                    const currentTime = hours + ':' + minutes + ' ' + ampm;
+                    
+                    messageTimeDiv.textContent = currentTime;
+                    
+                    messageDiv.appendChild(messageTextDiv);
+                    messageDiv.appendChild(messageTimeDiv);
+                    
+                    messagesContainer.appendChild(messageDiv);
+                    
+                    // Clear input
+                    this.value = '';
+                    
+                    // Scroll to bottom
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    
+                    // Simulate reply after a delay
+                    setTimeout(() => {
+                        const replies = [
+                            "That's interesting!",
+                            "I see what you mean.",
+                            "Let me think about that...",
+                            "Thanks for letting me know!",
+                            "I appreciate your message.",
+                            "That sounds good to me!",
+                            "I'll get back to you on that.",
+                            "Can we talk more about this later?"
+                        ];
+                        
+                        const randomReply = replies[Math.floor(Math.random() * replies.length)];
+                        
+                        const replyDiv = document.createElement('div');
+                        replyDiv.className = 'message incoming';
+                        
+                        const replyTextDiv = document.createElement('div');
+                        replyTextDiv.className = 'message-text';
+                        replyTextDiv.textContent = randomReply;
+                        
+                        const replyTimeDiv = document.createElement('div');
+                        replyTimeDiv.className = 'message-time';
+                        replyTimeDiv.textContent = currentTime;
+                        
+                        replyDiv.appendChild(replyTextDiv);
+                        replyDiv.appendChild(replyTimeDiv);
+                        
+                        messagesContainer.appendChild(replyDiv);
+                        
+                        // Scroll to bottom
+                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    }, 1000);
+                }
+            });
+            
+            // Responsive behavior on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    // Desktop view - show both sidebar and chat area
+                    sidebar.classList.add('active');
+                    chatArea.classList.add('active');
+                    noChatSelected.style.display = 'none';
+                } else {
+                    // Mobile view - show only sidebar initially
+                    if (!document.querySelector('.chat-item.active')) {
+                        sidebar.classList.add('active');
+                        chatArea.classList.remove('active');
+                        noChatSelected.style.display = 'flex';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
